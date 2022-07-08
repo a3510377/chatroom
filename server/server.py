@@ -88,6 +88,7 @@ def connect_():
 
     if username and password and authorization_user(username, password):
         users.append(username)
+        send_user_notice(username, "join")
         return
     socketio.emit("disconnect")
 
@@ -99,6 +100,8 @@ def disconnect_():
             users.remove(username)
         except ValueError:
             pass
+        else:
+            send_user_notice(username, "leave")
 
 
 def setup_data():

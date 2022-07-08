@@ -1,4 +1,3 @@
-
 import asyncio
 import os
 import time
@@ -96,12 +95,15 @@ def message(msg: str):
 async def input_msg():
     while True:
         print('\033[1A\033[K', end="\r")
-        if (msg := input().strip()):
-            if requests.post(
-                f"{HTTP_SERVER_URL}/messages",
-                data=msg.encode("utf-8"),
-                headers={"username": name, "password": password}
-            ).status_code != 200:
-                print("訊息發送時發生錯誤")
-
+        try:
+            if (msg := input().strip()):
+                if requests.post(
+                    f"{HTTP_SERVER_URL}/messages",
+                    data=msg.encode("utf-8"),
+                    headers={"username": name, "password": password}
+                ).status_code != 200:
+                    print("訊息發送時發生錯誤")
+        except EOFError:
+            sio.disconnect()
+            exit()
 sio.connect(HTTP_SERVER_URL, headers={"username": name, "password": password})
