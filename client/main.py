@@ -106,4 +106,5 @@ async def input_msg():
         except EOFError:
             sio.disconnect()
             exit()
+
 sio.connect(HTTP_SERVER_URL, headers={"username": name, "password": password})
