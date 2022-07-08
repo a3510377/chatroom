@@ -20,7 +20,8 @@ pipenv install
 pipenv run python server.py
 ```
 
-## edit
+## create your server
 
 [edit server url](https://github.com/a3510377/chatroom/blob/master/client/main.py#L11)
+
 [edit server port](https://github.com/a3510377/chatroom/blob/master/server/server.py#L184)
