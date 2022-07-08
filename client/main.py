@@ -1,5 +1,6 @@
 import asyncio
 import os
+from signal import SIGINT, signal
 import time
 import getpass
 
@@ -92,6 +93,12 @@ def message(msg: str):
     print(msg)
 
 
+def kill():
+    print("關閉程式...")
+    sio.disconnect()
+    exit()
+
+
 async def input_msg():
     while True:
         print('\033[1A\033[K', end="\r")
@@ -104,7 +111,8 @@ async def input_msg():
                 ).status_code != 200:
                     print("訊息發送時發生錯誤")
         except EOFError:
-            sio.disconnect()
-            exit()
+            kill()
+
+signal(SIGINT, lambda *_: kill)
 
 sio.connect(HTTP_SERVER_URL, headers={"username": name, "password": password})
