@@ -1,4 +1,7 @@
-* text eol=lf
+* text eol=lf linguist-detectable=true
 
 # binary file excludsions
 *.png binary
+
+*.flask linguist-language=lni
+*.code-workspace linguist-language=json
