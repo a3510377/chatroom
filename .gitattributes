@@ -3,5 +3,5 @@
 # binary file excludsions
 *.png binary
 
-*.flask linguist-language=lni
+*.flask linguist-language=ini
 *.code-workspace linguist-language=json
