@@ -1,6 +1,7 @@
 {
   "folders": [{ "path": "." }, { "path": "client" }, { "path": "server" }],
   "settings": {
-    "cSpell.words": ["chartroom"]
+    "cSpell.words": ["chartroom"],
+    "liveServer.settings.multiRootWorkspaceName": "chatroom"
   }
 }
